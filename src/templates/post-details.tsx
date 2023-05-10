@@ -126,7 +126,8 @@ export default function PostDetail({ data }: { data: SiteData }) {
           width='100px'
           sx={{
             backgroundColor: colors.blue,
-            height: `calc(${window.innerHeight - 60}px)`,
+            height: window ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
           {/* MENU LATERAL */}
@@ -268,7 +269,8 @@ export default function PostDetail({ data }: { data: SiteData }) {
           sx={{
             backgroundColor: colors.darkGrey,
             width: '100%',
-            height: `calc(${window.innerHeight - 60}px)`,
+            height: window ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
           <Box
