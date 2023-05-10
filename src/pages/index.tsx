@@ -26,7 +26,6 @@ export default function Index({ data }: { data: SiteData }) {
   const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
   const { title } = data.site.siteMetadata
   const blogs = data.allMarkdownRemark.nodes
-  console.log(blogs)
   const today = new Date()
 
   const [collapse, setCollapse] = useState(true)
@@ -47,7 +46,6 @@ export default function Index({ data }: { data: SiteData }) {
   }
 
   function getPostColor(blog: any) {
-    console.log(blog)
     const mounth = blog.frontmatter.createdAt.replace(
       /\d{4}-(\d{2})-\d{2}.*/,
       '$1'

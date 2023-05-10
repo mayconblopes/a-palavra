@@ -55,7 +55,6 @@ export default function PostDetail({ data }: { data: SiteData }) {
     const bibleText = await getBibleText(quote)
     setModalTitle(bibleText.reference)
     setModalContent(bibleText.text)
-    console.log(bibleText)
     setModalOpen(true)
 
   }

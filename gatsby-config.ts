@@ -18,16 +18,22 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/palavras`,
       },
     },
-      {
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/favico.svg',
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
   ],
 }
 

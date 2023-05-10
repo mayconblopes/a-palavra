@@ -19,7 +19,6 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve('./src/templates/post-details.tsx'),
         context: { slug: node.frontmatter.slug }
     })
-    console.log(node)
     
   });
 }
