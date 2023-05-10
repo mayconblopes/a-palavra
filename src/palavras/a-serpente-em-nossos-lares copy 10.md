@@ -1,13 +1,14 @@
 ---
-title: 'UM TESTE AQUI'
-slug: 'um-teste-aqui'
-createdAt: '2023-04-08'
+title: "A SERPENTE EM NOSSOS LARES"
+slug: 'a-serpente-em-nossos-lares'
+createdAt: '2023-05-08'
 image: '../images/a-serpente-em-nossos-lares.png'
 keyConcept1: 'Busque a verdadeira paz que só Jesus oferece.'
 keyConcept2: 'Cultive e cuide dos frutos do espírito.'
 keyConcept3: 'Renuncie à intimidade com os prazeres do mundo.'
 bibleQuote1: 'Gênesis 3:1-6'
 bibleQuote2: 'Gálatas 5:22'
+originalPreaching: 'https://www.youtube.com/watch?v=DyfFXLK4nuY&t=3593s'
 ---
 
 O texto de hoje apresenta a história da serpente, que no jardim do Éden encontrou alimento para sua astúcia. Aqui, vamos refletir sobre a <span>"serpente dos lares"</span>, que busca alimento para destruir as famílias. Como cristãos, devemos ter cuidado com os alimentos que cultivamos em nossos lares, pois a serpente pode se esconder para deles se alimentar. Vamos analisar os tipos de alimentos que a serpente deseja encontrar em nossos lares e estar atentos à presença dela em nossas vidas.
