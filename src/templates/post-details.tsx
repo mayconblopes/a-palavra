@@ -24,8 +24,12 @@ interface SiteData {
   }
 }
 
+const isBrowser = typeof window !== "undefined"
+
 export default function PostDetail({ data }: { data: SiteData }) {
-  console.log(data)
+
+  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : null
+
   const { html } = data.markdownRemark
   const {
     title,
@@ -126,7 +130,8 @@ export default function PostDetail({ data }: { data: SiteData }) {
           width='100px'
           sx={{
             backgroundColor: colors.blue,
-            height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            height: fixMobileViewPortHeight
+            // height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
             // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
@@ -269,7 +274,8 @@ export default function PostDetail({ data }: { data: SiteData }) {
           sx={{
             backgroundColor: colors.darkGrey,
             width: '100%',
-            height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            height: fixMobileViewPortHeight,
+            // height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
             // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >

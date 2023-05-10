@@ -18,7 +18,12 @@ interface SiteData {
   }
 }
 
+
+const isBrowser = typeof window !== "undefined"
+
 export default function Index({ data }: { data: SiteData }) {
+  
+  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : null
   const { title } = data.site.siteMetadata
   const blogs = data.allMarkdownRemark.nodes
   console.log(blogs)
@@ -124,7 +129,8 @@ export default function Index({ data }: { data: SiteData }) {
           sx={{
             backgroundColor: colors.darkGrey,
             width: '100%',
-            height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            // height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            height: fixMobileViewPortHeight,
           }}
         >
           <Box
