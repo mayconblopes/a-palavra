@@ -126,7 +126,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
           width='100px'
           sx={{
             backgroundColor: colors.blue,
-            height: window ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
             // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
@@ -269,7 +269,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
           sx={{
             backgroundColor: colors.darkGrey,
             width: '100%',
-            height: window ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+            height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
             // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
