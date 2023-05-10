@@ -7,6 +7,8 @@ import monthsOfTheYear from '../utils/monthsOfTheYear'
 import Img from 'gatsby-image'
 import MyText from '../components/MyText'
 import MyModal from '../components/MyModal'
+import { getBibleText } from '../utils/getBibleText'
+import colors from '../utils/colors'
 
 interface SiteData {
   site: {
@@ -41,25 +43,28 @@ export default function PostDetail({ data }: { data: SiteData }) {
   const day = createdAt.replace(/\d{4}-\d{2}-(\d{2}).*/, '$1')
   const year = createdAt.replace(/(\d{4})-\d{2}-\d{2}.*/, '$1')
 
-  const blue = '#5484FF'
-  const darkBlue = '#455DFF'
-  const darkGrey = '#3D3C3E'
-  const lightGrey = '#8D8C92'
-  const black = '#302F32'
-  const yellow = '#FFB729'
-  const white = '#F2F1F7'
-
   const [modalOpen, setModalOpen] = useState(false)
+  const [modalContent, setModalContent] = useState('')
+  const [modalTitle, setModalTitle] = useState('')
+
+  async function openBibleText(quote: string) {
+    const bibleText = await getBibleText(quote)
+    setModalTitle(bibleText.reference)
+    setModalContent(bibleText.text)
+    console.log(bibleText)
+    setModalOpen(true)
+
+  }
 
   return (
     <Fragment>
-      <MyModal open={modalOpen} content='teste de modal' setModalOpen={setModalOpen}/>
+      <MyModal open={modalOpen} title={modalTitle} content={modalContent} setModalOpen={setModalOpen}/>
       <Box
         className='header'
         display='flex'
         alignItems='center'
         gap='20px'
-        sx={{ height: '60px', width: '100vw', backgroundColor: blue }}
+        sx={{ height: '60px', width: '100vw', backgroundColor: colors.blue }}
       >
         <Link to='/'>
           <PhCrossBold style={{ marginLeft: '23px' }} />
@@ -68,7 +73,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
         <Typography
           className='fontJosefin'
           level='h1'
-          textColor={white}
+          textColor={colors.white}
           minWidth='165px'
           // maxWidth={`${6.2 * title.length}px`}
           sx={{
@@ -89,22 +94,22 @@ export default function PostDetail({ data }: { data: SiteData }) {
           alignItems='center'
           padding='5px'
           sx={{
-            backgroundColor: darkBlue,
+            backgroundColor: colors.darkBlue,
             position: 'absolute',
             right: '6px',
             top: '2px',
             borderRadius: '0 0 5px 5px',
           }}
         >
-          <Typography className='fontJosefin' textColor={white} fontSize='14px'>
+          <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
             {month}
           </Typography>
 
-          <Typography className='fontJosefin' textColor={white} fontSize='14px'>
+          <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
             {day}
           </Typography>
 
-          <Typography className='fontJosefin' textColor={white} fontSize='14px'>
+          <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
             {year}
           </Typography>
         </Box>
@@ -121,14 +126,14 @@ export default function PostDetail({ data }: { data: SiteData }) {
           minHeight='calc(100vh - 60px)'
           width='100px'
           sx={{
-            backgroundColor: blue,
+            backgroundColor: colors.blue,
           }}
         >
           {/* MENU LATERAL */}
           <Link to='/' style={{ textDecoration: 'none' }}>
             <Typography
               className='fontJosefin'
-              textColor={white}
+              textColor={colors.white}
               fontSize='10px'
               fontWeight='bold'
               textAlign='center'
@@ -157,7 +162,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
               justifyContent='space-around'
               alignItems='center'
               width='240px'
-              sx={{ backgroundColor: darkBlue, borderRadius: '0 5px 0 0' }}
+              sx={{ backgroundColor: colors.darkBlue, borderRadius: '0 5px 0 0' }}
             >
               <Box
                 display='flex'
@@ -170,10 +175,10 @@ export default function PostDetail({ data }: { data: SiteData }) {
                     size='sm'
                     className='fontJosefin'
                     color='warning'
-                    onClick={() => setModalOpen(true)}
+                    onClick={() => openBibleText(bibleQuote1)}
                     sx={{
-                      backgroundColor: yellow,
-                      color: black,
+                      backgroundColor: colors.yellow,
+                      color: colors.black,
                       maxWidth: '100px',
                       fontSize: '10px',
                     }}
@@ -188,8 +193,8 @@ export default function PostDetail({ data }: { data: SiteData }) {
                     className='fontJosefin'
                     color='warning'
                     sx={{
-                      backgroundColor: yellow,
-                      color: black,
+                      backgroundColor: colors.yellow,
+                      color: colors.black,
                       maxWidth: '100px',
                       fontSize: '10px',
                     }}
@@ -217,8 +222,8 @@ export default function PostDetail({ data }: { data: SiteData }) {
                 className='fontJosefin'
                 color='warning'
                 sx={{
-                  backgroundColor: yellow,
-                  color: black,
+                  backgroundColor: colors.yellow,
+                  color: colors.black,
                   maxWidth: '100px',
                   fontSize: '10px',
                 }}
@@ -230,13 +235,13 @@ export default function PostDetail({ data }: { data: SiteData }) {
                 alignItems='center'
                 width='125px'
                 height='55px'
-                sx={{ backgroundColor: black, borderRadius: '5px 0 0 5px' }}
+                sx={{ backgroundColor: colors.black, borderRadius: '5px 0 0 5px' }}
               >
                 <Typography
                   maxWidth='85px'
                   className='fontJosefin'
                   fontSize='10px'
-                  textColor={white}
+                  textColor={colors.white}
                   ml='10px'
                   textAlign='center'
                 >
@@ -255,7 +260,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
           gap='8px'
           alignItems='center'
           sx={{
-            backgroundColor: darkGrey,
+            backgroundColor: colors.darkGrey,
             width: '100%',
             height: 'calc(100vh - 60px)',
           }}
@@ -266,7 +271,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
             marginTop='30px'
             padding='10px'
             sx={{
-              backgroundColor: black,
+              backgroundColor: colors.black,
               borderRadius: '10px',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25);',
               overflow: 'scroll',
@@ -294,7 +299,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
               <Typography
                 className='fontJosefin'
                 fontSize='9px'
-                textColor={lightGrey}
+                textColor={colors.lightGrey}
               >
                 Lições extraídas da pregação original de Pr. Fábio S. Dos
                 Santos.
@@ -303,14 +308,14 @@ export default function PostDetail({ data }: { data: SiteData }) {
               <Typography
                 className='fontJosefin'
                 fontSize='9px'
-                textColor={lightGrey}
+                textColor={colors.lightGrey}
               >
                 Esse texto é uma interpretação livre à pregação original.
               </Typography>
               <Typography
                 className='fontJosefin'
                 fontSize='9px'
-                textColor={lightGrey}
+                textColor={colors.lightGrey}
                 sx={{ textDecoration: 'underline' }}
               >
                 designed by @mayconblopes
