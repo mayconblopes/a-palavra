@@ -123,10 +123,10 @@ export default function PostDetail({ data }: { data: SiteData }) {
           flexDirection='column'
           justifyContent='space-around'
           alignItems='center'
-          minHeight='calc(100vh - 60px)'
           width='100px'
           sx={{
             backgroundColor: colors.blue,
+            height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
           {/* MENU LATERAL */}
@@ -268,7 +268,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
           sx={{
             backgroundColor: colors.darkGrey,
             width: '100%',
-            height: 'calc(100vh - 60px)',
+            height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
           <Box

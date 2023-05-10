@@ -124,7 +124,7 @@ export default function Index({ data }: { data: SiteData }) {
           sx={{
             backgroundColor: colors.darkGrey,
             width: '100%',
-            height: 'calc(100vh - 60px)',
+            height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
           <Box
