@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import { Box, Button, Typography } from '@mui/joy'
 import { Link, graphql, navigate } from 'gatsby'
-import '../pages/style.css'
 import { PhCrossBold } from '../components/PhCrossBold'
 import monthsOfTheYear from '../utils/monthsOfTheYear'
 import Img from 'gatsby-image'
@@ -9,6 +8,7 @@ import MyText from '../components/MyText'
 import MyModal from '../components/MyModal'
 import { getBibleText } from '../utils/getBibleText'
 import colors from '../utils/colors'
+import '../pages/style.css'
 
 interface SiteData {
   site: {
@@ -153,9 +153,10 @@ export default function PostDetail({ data }: { data: SiteData }) {
             justifyContent='space-between'
             position='absolute'
             height='110px'
-            width='98.1%'
+            // width='98.1%'
             bottom='9px'
             left='4px'
+            right='0'
           >
             <Box
               display='flex'
@@ -192,6 +193,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
                     size='sm'
                     className='fontJosefin'
                     color='warning'
+                    onClick={() => openBibleText(bibleQuote2)}
                     sx={{
                       backgroundColor: colors.yellow,
                       color: colors.black,
@@ -216,20 +218,24 @@ export default function PostDetail({ data }: { data: SiteData }) {
               flexDirection='column'
               justifyContent='space-around'
             >
-              <Button
-                onClick={() => navigate(originalPreaching)}
-                size='sm'
+              <Link
+                to={originalPreaching}
+                target='_blank'
                 className='fontJosefin'
-                color='warning'
-                sx={{
+                style={{
                   backgroundColor: colors.yellow,
                   color: colors.black,
                   maxWidth: '100px',
                   fontSize: '10px',
+                  fontWeight: 'bold',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  textAlign: 'center',
+                  padding: '5px 0'
                 }}
               >
                 PREGAÇÃO ORIGINAL
-              </Button>
+              </Link>
               <Box
                 display='flex'
                 alignItems='center'

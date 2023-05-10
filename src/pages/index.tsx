@@ -1,9 +1,11 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Box, Typography } from '@mui/joy'
 import { Link, StaticQueryDocument, graphql } from 'gatsby'
 import './style.css'
 import { PhCrossBold } from '../components/PhCrossBold'
 import monthsOfTheYear from '../utils/monthsOfTheYear'
+import colors from '../utils/colors'
+import { Collapse } from '@mui/material'
 
 interface SiteData {
   site: {
@@ -19,14 +21,34 @@ interface SiteData {
 export default function Index({ data }: { data: SiteData }) {
   const { title } = data.site.siteMetadata
   const blogs = data.allMarkdownRemark.nodes
+  console.log(blogs)
   const today = new Date()
 
-  const blue = '#5484FF'
-  const darkBlue = '#455DFF'
-  const darkGrey = '#3D3C3E'
-  const black = '#302F32'
-  const yellow = '#FFB729'
-  const white = '#F2F1F7'
+  const [collapse, setCollapse] = useState(true)
+
+  const postsColors: { [key: number]: string } = {
+    1: '#FCE200',
+    2: '#B59665',
+    3: '#00D953',
+    4: '#EB5EFF',
+    5: '#FFA000',
+    6: '#63D3FF',
+    7: '#FCE200',
+    8: '#B59665',
+    9: '#00D953',
+    10: '#EB5EFF',
+    11: '#FFA000',
+    12: '#63D3FF',
+  }
+
+  function getPostColor(blog: any) {
+    console.log(blog)
+    const mounth = blog.frontmatter.createdAt.replace(
+      /\d{4}-(\d{2})-\d{2}.*/,
+      '$1'
+    )
+    return postsColors[Number(mounth)]
+  }
 
   return (
     <Fragment>
@@ -35,15 +57,15 @@ export default function Index({ data }: { data: SiteData }) {
         display='flex'
         alignItems='center'
         gap='20px'
-        sx={{ height: '60px', width: '100vw', backgroundColor: blue }}
+        sx={{ height: '60px', width: '100vw', backgroundColor: colors.blue }}
       >
         <PhCrossBold style={{ marginLeft: '23px' }} />
 
         <Typography
           className='fontJosefin'
           level='h1'
-          textColor={white}
-          sx={{ 
+          textColor={colors.white}
+          sx={{
             marginLeft: '10px',
             fontSize: '26px',
           }}
@@ -60,51 +82,71 @@ export default function Index({ data }: { data: SiteData }) {
           alignItems='center'
           padding='5px'
           sx={{
-            backgroundColor: darkBlue,
+            backgroundColor: colors.darkBlue,
             position: 'absolute',
             right: '6px',
             top: '2px',
             borderRadius: '0 0 5px 5px',
           }}
         >
-          <Typography className='fontJosefin' textColor={white} fontSize='14px'>
+          <Typography
+            className='fontJosefin'
+            textColor={colors.white}
+            fontSize='14px'
+          >
             {monthsOfTheYear[today.getMonth()].toLocaleUpperCase()}
           </Typography>
 
-          <Typography className='fontJosefin' textColor={white} fontSize='14px'>
+          <Typography
+            className='fontJosefin'
+            textColor={colors.white}
+            fontSize='14px'
+          >
             {today.getDate()}
           </Typography>
 
-          <Typography className='fontJosefin' textColor={white} fontSize='14px'>
+          <Typography
+            className='fontJosefin'
+            textColor={colors.white}
+            fontSize='14px'
+          >
             {today.getFullYear()}
           </Typography>
         </Box>
       </Box>
 
       <Box className='body' display='flex'>
-        
         <Box
           className='bodyContent'
           display='flex'
           flexDirection='column'
           alignItems='center'
-          sx={{ backgroundColor: darkGrey, width: '100%', height: 'calc(100vh - 60px)' }}
+          sx={{
+            backgroundColor: colors.darkGrey,
+            width: '100%',
+            height: 'calc(100vh - 60px)',
+          }}
         >
           <Box
-            width='90vw'
+            width='70vw'
             height='auto'
             marginTop='30px'
             padding='10px'
             sx={{
-              backgroundColor: black,
+              backgroundColor: colors.black,
               borderRadius: '10px',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25);',
             }}
           >
-            <Typography className='bemVindo' textColor={white} fontSize='10.5px' textAlign='justify'>
-              Bem-vindo(a)! Este é um espaço dedicado a compartilhar resumos
-              de pregações cristãs. Aqui você encontrará uma fonte de inspiração
-              e reflexão. Fique à vontade para explorar e mergulhar nas Palavras
+            <Typography
+              className='bemVindo'
+              textColor={colors.white}
+              fontSize='10.5px'
+              textAlign='justify'
+            >
+              Bem-vindo(a)! Este é um espaço dedicado a compartilhar resumos de
+              pregações cristãs. Aqui você encontrará uma fonte de inspiração e
+              reflexão. Fique à vontade para explorar e mergulhar nas Palavras
               que temos para compartilhar.
               <br />
               <br />
@@ -112,30 +154,112 @@ export default function Index({ data }: { data: SiteData }) {
               fé.
               <br />
               <br />
-              Nos links abaixo você encontrará os posts, listados dos mais recentes aos mais antigos.
+              Nos links abaixo você encontrará os posts, listados dos mais
+              recentes aos mais antigos.
+              <br />
+              <br />
+              Este projeto foi desenvolvido e é mantido por{' '}
+              <a
+                href='http://maycon.barretolopes.com'
+                target='_blank'
+                style={{ color: colors.brown }}
+              >
+                @mayconblopes
+              </a>
+              .
             </Typography>
           </Box>
 
           {/* Todo os posts */}
-          <Box display='flex' flexDirection='row' flexWrap='wrap' justifyContent='space-between' alignItems='center' marginTop='20px' width='90vw'>
-          {blogs.map((blog: any) => (
-            <Link
-              to={'/palavras/'+blog.frontmatter.slug}
-              key={blog.id}
-              style={{ textDecorationColor: white }}
+          <Box
+            display='flex'
+            flexDirection='row'
+            flexWrap='wrap'
+            justifyContent='space-around'
+            marginTop='20px'
+            // marginBottom='100px'
+            width='70vw'
+            overflow='auto'
+          >
+            {blogs.map((blog: any) => (
+              <Box
+                width='100px'
+                height='102px'
+                sx={{ backgroundColor: getPostColor(blog) }}
+                key={blog.id}
+                borderRadius='5px'
+                m='5px'
+              >
+                <Link
+                  to={'/palavras/' + blog.frontmatter.slug}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <Box display='flex' flexDirection='column'>
+                    <Typography
+                      className='fontJosefin'
+                      textColor={colors.black}
+                      textAlign='center'
+                      fontSize='10px'
+                      padding='5px'
+                    >
+                      {blog.frontmatter.title}
+                    </Typography>
+
+                    <Typography
+                      className='fontJosefin'
+                      textColor={colors.black}
+                      textAlign='center'
+                      fontSize='10px'
+                      padding='5px'
+                    >
+                      {blog.frontmatter.bibleQuote1}
+                    </Typography>
+                    <Typography
+                      className='fontJosefin'
+                      textColor={colors.black}
+                      textAlign='center'
+                      fontSize='10px'
+                      padding='5px'
+                    >
+                      {blog.frontmatter.bibleQuote2}
+                    </Typography>
+                  </Box>
+                </Link>
+              </Box>
+            ))}
+          </Box>
+          <Collapse in={collapse} timeout='auto' unmountOnExit onClick={() => {
+            setCollapse(false)
+            setTimeout(() => {
+              setCollapse(true)
+            }, 3000)
+          }
+          }>
+            <Box
+              display='flex'
+              alignItems='center'
+              width='125px'
+              height='55px'
+              position='absolute'
+              bottom='9px'
+              right='0'
+              sx={{
+                backgroundColor: colors.black,
+                borderRadius: '5px 0 0 5px',
+              }}
             >
               <Typography
+                maxWidth='85px'
                 className='fontJosefin'
-                textColor={white}
-                textAlign='center'
                 fontSize='10px'
-                padding='5px'
+                textColor={colors.white}
+                ml='10px'
+                textAlign='center'
               >
-                {blog.frontmatter.title}
+                Material criado para honra e glória de Deus
               </Typography>
-            </Link>
-          ))}
-          </Box>
+            </Box>
+          </Collapse>
         </Box>
       </Box>
     </Fragment>
@@ -144,12 +268,14 @@ export default function Index({ data }: { data: SiteData }) {
 
 export const query = graphql`
   query MyQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { frontmatter: { createdAt: DESC } }) {
       nodes {
         frontmatter {
           title
           slug
           createdAt
+          bibleQuote1
+          bibleQuote2
         }
         id
       }

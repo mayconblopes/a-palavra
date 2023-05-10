@@ -10,6 +10,10 @@ body {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+.fontRobotoMono {
+    font-family: 'Roboto Mono', monospace;
+}
+
 .bemVindo {
     color: #F2F1F7;
     font-family: 'Roboto Mono', monospace;

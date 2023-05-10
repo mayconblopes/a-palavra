@@ -6,6 +6,7 @@ const colors: {[key: string]: string} = {
   black: '#302F32',
   yellow: '#FFB729',
   white: '#F2F1F7',
+  brown: '#A2865B'
 }
 
 export default colors
