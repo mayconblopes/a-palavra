@@ -94,7 +94,7 @@ export default function Index({ data }: { data: SiteData }) {
             textColor={colors.white}
             fontSize='14px'
           >
-            {monthsOfTheYear[today.getMonth()].toLocaleUpperCase()}
+            {today.getDate()}
           </Typography>
 
           <Typography
@@ -102,7 +102,7 @@ export default function Index({ data }: { data: SiteData }) {
             textColor={colors.white}
             fontSize='14px'
           >
-            {today.getDate()}
+            {monthsOfTheYear[today.getMonth()].toLocaleUpperCase()}
           </Typography>
 
           <Typography
@@ -128,7 +128,7 @@ export default function Index({ data }: { data: SiteData }) {
           }}
         >
           <Box
-            width='70vw'
+            width='75vw'
             height='auto'
             marginTop='30px'
             padding='10px'
@@ -141,7 +141,7 @@ export default function Index({ data }: { data: SiteData }) {
             <Typography
               className='bemVindo'
               textColor={colors.white}
-              fontSize='10.5px'
+              fontSize='12px'
               textAlign='justify'
             >
               Bem-vindo(a)! Este é um espaço dedicado a compartilhar resumos de
@@ -158,6 +158,13 @@ export default function Index({ data }: { data: SiteData }) {
               recentes aos mais antigos.
               <br />
               <br />
+            </Typography>
+            <Typography
+              className='bemVindo'
+              textColor={colors.lightGrey}
+              fontSize='10px'
+              textAlign='right'
+            >
               Este projeto foi desenvolvido e é mantido por{' '}
               <a
                 href='http://maycon.barretolopes.com'
@@ -185,10 +192,13 @@ export default function Index({ data }: { data: SiteData }) {
               <Box
                 width='100px'
                 height='102px'
-                sx={{ backgroundColor: getPostColor(blog) }}
                 key={blog.id}
                 borderRadius='5px'
                 m='5px'
+                sx={{
+                  backgroundColor: getPostColor(blog),
+                  ':active': { backgroundColor: colors.darkYellow },
+                }}
               >
                 <Link
                   to={'/palavras/' + blog.frontmatter.slug}
@@ -228,13 +238,17 @@ export default function Index({ data }: { data: SiteData }) {
               </Box>
             ))}
           </Box>
-          <Collapse in={collapse} timeout='auto' unmountOnExit onClick={() => {
-            setCollapse(false)
-            setTimeout(() => {
-              setCollapse(true)
-            }, 3000)
-          }
-          }>
+          <Collapse
+            in={collapse}
+            timeout='auto'
+            unmountOnExit
+            onClick={() => {
+              setCollapse(false)
+              setTimeout(() => {
+                setCollapse(true)
+              }, 10000)
+            }}
+          >
             <Box
               display='flex'
               alignItems='center'

@@ -102,11 +102,11 @@ export default function PostDetail({ data }: { data: SiteData }) {
           }}
         >
           <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
-            {month}
+            {day}
           </Typography>
 
           <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
-            {day}
+            {month}
           </Typography>
 
           <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
@@ -144,7 +144,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
 
           <MyText text={keyConcept1} />
           <MyText text={keyConcept2} />
-          <Box marginBottom='150px'>
+          <Box marginBottom='190px'>
             <MyText text={keyConcept3} />
           </Box>
 
@@ -231,7 +231,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
                   borderRadius: '10px',
                   textDecoration: 'none',
                   textAlign: 'center',
-                  padding: '5px 0'
+                  padding: '5px 0',
                 }}
               >
                 PREGAÇÃO ORIGINAL
@@ -280,7 +280,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
               backgroundColor: colors.black,
               borderRadius: '10px',
               boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25);',
-              overflow: 'scroll',
+              overflowY: 'scroll',
             }}
           >
             {/* CONTEUDO DO POST */}

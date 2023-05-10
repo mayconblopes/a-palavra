@@ -8,8 +8,9 @@ export default function MyText({ text }: { text: string }) {
     <Typography
       className='fontJosefin'
       textColor={white}
-      fontSize='10px'
+      fontSize='12px'
       textAlign='center'
+      margin='0 5px'
     >
       {text}
     </Typography>
