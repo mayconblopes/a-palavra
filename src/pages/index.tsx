@@ -23,7 +23,7 @@ const isBrowser = typeof window !== "undefined"
 
 export default function Index({ data }: { data: SiteData }) {
   
-  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : null
+  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
   const { title } = data.site.siteMetadata
   const blogs = data.allMarkdownRemark.nodes
   console.log(blogs)

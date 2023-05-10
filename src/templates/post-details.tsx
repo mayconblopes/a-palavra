@@ -28,7 +28,7 @@ const isBrowser = typeof window !== "undefined"
 
 export default function PostDetail({ data }: { data: SiteData }) {
 
-  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : null
+  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
 
   const { html } = data.markdownRemark
   const {
