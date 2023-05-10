@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500&display=swap');
+
+
+body {
+    margin: 0;
+}
+
+.fontJosefin {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.bemVindo {
+    color: #F2F1F7;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    text-align: justify;
+}
+
+.postContent {
+    color: #F2F1F7;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    text-align: justify;
+}
+
+span{
+    color: #A2865B;
+    font-weight: bold;
+}
