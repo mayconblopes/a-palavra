@@ -217,7 +217,9 @@ export default function PostDetail({ data }: { data: SiteData }) {
                   </Button>
                 )}
               </Box>
-              <Box width='100px' height='100px'>
+              <Box
+                width='100px' height='100px'
+                >
                 <Img
                   fluid={
                     data.markdownRemark.frontmatter.image.childImageSharp.fluid

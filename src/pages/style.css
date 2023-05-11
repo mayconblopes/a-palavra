@@ -52,7 +52,7 @@ body {
     color: #F2F1F7;
     font-family: 'Roboto Mono', monospace;
     font-weight: 300;
-    text-align: justify;
+    /* text-align: justify; */
     font-size: large;
 }
 
