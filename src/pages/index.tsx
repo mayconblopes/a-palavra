@@ -215,6 +215,7 @@ export default function Index({ data }: { data: SiteData }) {
                       textAlign='center'
                       fontSize='10px'
                       padding='5px'
+                      fontWeight='bold'
                     >
                       {blog.frontmatter.title}
                     </Typography>
