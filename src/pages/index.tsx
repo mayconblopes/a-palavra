@@ -105,7 +105,7 @@ export default function Index({ data }: { data: SiteData }) {
             textColor={colors.white}
             fontSize='14px'
           >
-            {monthsOfTheYear[today.getMonth()].toLocaleUpperCase()}
+            {monthsOfTheYear[today.getMonth()+1].toLocaleUpperCase()}
           </Typography>
 
           <Typography
