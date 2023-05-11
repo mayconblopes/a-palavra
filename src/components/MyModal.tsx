@@ -26,7 +26,7 @@ export default function MyModal({
       <ModalDialog sx={{ backgroundColor: colors.darkGrey, overflow: 'auto' }}>
         <ModalClose />
         <Typography className='fontJosefin' textColor={colors.yellow}>
-          {title.toLocaleUpperCase()}
+          { title ? title.toLocaleUpperCase(): null}
         </Typography>
         <Typography
           className='fontRobotoMono'
