@@ -194,8 +194,8 @@ export default function Index({ data }: { data: SiteData }) {
           >
             {blogs.map((blog: any) => (
               <Box
-                width='100px'
-                height='102px'
+                width='130px'
+                height='132px'
                 key={blog.id}
                 borderRadius='5px'
                 m='5px'
@@ -213,7 +213,7 @@ export default function Index({ data }: { data: SiteData }) {
                       className='fontJosefin'
                       textColor={colors.black}
                       textAlign='center'
-                      fontSize='10px'
+                      fontSize='16px'
                       padding='5px'
                       fontWeight='bold'
                     >
@@ -224,7 +224,7 @@ export default function Index({ data }: { data: SiteData }) {
                       className='fontJosefin'
                       textColor={colors.black}
                       textAlign='center'
-                      fontSize='10px'
+                      fontSize='11px'
                       padding='5px'
                     >
                       {blog.frontmatter.bibleQuote1}
@@ -233,7 +233,7 @@ export default function Index({ data }: { data: SiteData }) {
                       className='fontJosefin'
                       textColor={colors.black}
                       textAlign='center'
-                      fontSize='10px'
+                      fontSize='11px'
                       padding='5px'
                     >
                       {blog.frontmatter.bibleQuote2}
