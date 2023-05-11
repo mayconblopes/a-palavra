@@ -41,6 +41,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
     bibleQuote1,
     bibleQuote2,
     originalPreaching,
+    originalPreacher
   } = data.markdownRemark.frontmatter
   const month =
     monthsOfTheYear[Number(createdAt.replace(/\d{4}-(\d{2})-\d{2}.*/, '$1'))]
@@ -52,12 +53,18 @@ export default function PostDetail({ data }: { data: SiteData }) {
   const [modalTitle, setModalTitle] = useState('')
 
   async function openBibleText(quote: string) {
-    const bibleText = await getBibleText(quote)
-    setModalTitle(bibleText.reference)
-    setModalContent(bibleText.text)
-    setModalOpen(true)
+      const bibleText = await getBibleText(quote)
 
-  }
+      if (bibleText.reference && bibleText.text){
+        setModalTitle(bibleText.reference)
+        setModalContent(bibleText.text)
+
+      } else {
+        setModalTitle('Erro')
+        setModalContent('Infelizmente este texto bíblico não pode ser encontrado automaticamente.')
+      }
+      setModalOpen(true)
+    }
 
   return (
     <Fragment>
@@ -314,8 +321,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
                 fontSize='9px'
                 textColor={colors.lightGrey}
               >
-                Lições extraídas da pregação original de Pr. Fábio S. Dos
-                Santos.
+                Lições extraídas da pregação original de {originalPreacher}.
               </Typography>
               <br />
               <Typography
@@ -354,6 +360,7 @@ export const query = graphql`
         bibleQuote1
         bibleQuote2
         originalPreaching
+        originalPreacher
         image {
           childImageSharp {
             fluid {
