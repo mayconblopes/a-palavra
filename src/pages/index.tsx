@@ -18,12 +18,12 @@ interface SiteData {
   }
 }
 
-
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 export default function Index({ data }: { data: SiteData }) {
-  
-  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+  const fixMobileViewPortHeight = isBrowser
+    ? `calc(${window.innerHeight - 60}px)`
+    : `calc(100vh - 60px)`
   const { title } = data.site.siteMetadata
   const blogs = data.allMarkdownRemark.nodes
   const today = new Date()
@@ -105,7 +105,7 @@ export default function Index({ data }: { data: SiteData }) {
             textColor={colors.white}
             fontSize='14px'
           >
-            {monthsOfTheYear[today.getMonth()+1].toLocaleUpperCase()}
+            {monthsOfTheYear[today.getMonth() + 1].toLocaleUpperCase()}
           </Typography>
 
           <Typography
@@ -193,53 +193,63 @@ export default function Index({ data }: { data: SiteData }) {
             overflow='auto'
           >
             {blogs.map((blog: any) => (
-              <Box
-                width='130px'
-                height='132px'
-                key={blog.id}
-                borderRadius='5px'
-                m='5px'
-                sx={{
-                  backgroundColor: getPostColor(blog),
-                  ':active': { backgroundColor: colors.darkYellow },
-                }}
-              >
-                <Link
-                  to={'/palavras/' + blog.frontmatter.slug}
-                  style={{ textDecoration: 'none' }}
+              <Box display='flex' flexDirection='column'>
+                <Box
+                  width='130px'
+                  height='132px'
+                  key={blog.id}
+                  borderRadius='5px'
+                  m='5px'
+                  sx={{
+                    backgroundColor: getPostColor(blog),
+                    ':active': { backgroundColor: colors.darkYellow },
+                  }}
                 >
-                  <Box display='flex' flexDirection='column'>
-                    <Typography
-                      className='fontJosefin'
-                      textColor={colors.black}
-                      textAlign='center'
-                      fontSize='16px'
-                      padding='5px'
-                      fontWeight='bold'
-                    >
-                      {blog.frontmatter.title}
-                    </Typography>
+                  <Link
+                    to={'/palavras/' + blog.frontmatter.slug}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <Box display='flex' flexDirection='column'>
+                      <Typography
+                        className='fontJosefin'
+                        textColor={colors.black}
+                        textAlign='center'
+                        fontSize='16px'
+                        padding='5px'
+                        fontWeight='bold'
+                      >
+                        {blog.frontmatter.title}
+                      </Typography>
 
-                    <Typography
-                      className='fontJosefin'
-                      textColor={colors.black}
-                      textAlign='center'
-                      fontSize='11px'
-                      padding='5px'
-                    >
-                      {blog.frontmatter.bibleQuote1}
-                    </Typography>
-                    <Typography
-                      className='fontJosefin'
-                      textColor={colors.black}
-                      textAlign='center'
-                      fontSize='11px'
-                      padding='5px'
-                    >
-                      {blog.frontmatter.bibleQuote2}
-                    </Typography>
-                  </Box>
-                </Link>
+                      <Typography
+                        className='fontJosefin'
+                        textColor={colors.black}
+                        textAlign='center'
+                        fontSize='11px'
+                        padding='5px'
+                      >
+                        {blog.frontmatter.bibleQuote1}
+                      </Typography>
+                      <Typography
+                        className='fontJosefin'
+                        textColor={colors.black}
+                        textAlign='center'
+                        fontSize='11px'
+                        padding='5px'
+                      >
+                        {blog.frontmatter.bibleQuote2}
+                      </Typography>
+                    </Box>
+                  </Link>
+                </Box>
+                <Typography
+                  className='fontJosefin'
+                  textColor={colors.lightGrey}
+                  fontSize='9px'
+                  textAlign='center'
+                >
+                  {blog.frontmatter.createdAt.replace(/(\d{4})-(\d{2})-(\d{2})/gm, '$3/$2/$1')}
+                </Typography>
               </Box>
             ))}
           </Box>
@@ -295,6 +305,7 @@ export const query = graphql`
           createdAt
           bibleQuote1
           bibleQuote2
+          originalPreacher
         }
         id
       }
