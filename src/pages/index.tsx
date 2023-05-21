@@ -188,7 +188,7 @@ export default function Index({ data }: { data: SiteData }) {
             flexWrap='wrap'
             justifyContent='space-around'
             marginTop='20px'
-            // marginBottom='100px'
+            marginBottom='10px'
             width='70vw'
             overflow='auto'
           >
