@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Box, Button, Typography } from '@mui/joy'
+import { Box, Button, IconButton, Typography } from '@mui/joy'
 import { Link, graphql, navigate } from 'gatsby'
 import { PhCrossBold } from '../components/PhCrossBold'
 import monthsOfTheYear from '../utils/monthsOfTheYear'
@@ -24,11 +24,18 @@ interface SiteData {
   }
 }
 
-const isBrowser = typeof window !== "undefined"
+const isBrowser = typeof window !== 'undefined'
 
 export default function PostDetail({ data }: { data: SiteData }) {
+  const [fullScreen, setFullScreen] = useState(true)
 
-  const fixMobileViewPortHeight = isBrowser ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
+  const fixMobileViewPortHeight = isBrowser
+    ? fullScreen
+      ? `calc(${window.innerHeight}px)`
+      : `calc(${window.innerHeight - 60}px)`
+    : fullScreen
+    ? `calc(100vh)`
+    : `calc(100vh - 60px)`
 
   const { html } = data.markdownRemark
   const {
@@ -41,7 +48,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
     bibleQuote1,
     bibleQuote2,
     originalPreaching,
-    originalPreacher
+    originalPreacher,
   } = data.markdownRemark.frontmatter
   const month =
     monthsOfTheYear[Number(createdAt.replace(/\d{4}-(\d{2})-\d{2}.*/, '$1'))]
@@ -53,22 +60,32 @@ export default function PostDetail({ data }: { data: SiteData }) {
   const [modalTitle, setModalTitle] = useState('')
 
   async function openBibleText(quote: string) {
-      const bibleText = await getBibleText(quote)
+    const bibleText = await getBibleText(quote)
 
-      if (bibleText.reference && bibleText.text){
-        setModalTitle(bibleText.reference)
-        setModalContent(bibleText.text)
-
-      } else {
-        setModalTitle('Erro')
-        setModalContent('Infelizmente este texto bíblico não pode ser encontrado automaticamente.')
-      }
-      setModalOpen(true)
+    if (bibleText.reference && bibleText.text) {
+      setModalTitle(bibleText.reference)
+      setModalContent(bibleText.text)
+    } else {
+      setModalTitle('Erro')
+      setModalContent(
+        'Infelizmente este texto bíblico não pode ser encontrado automaticamente.'
+      )
     }
+    setModalOpen(true)
+  }
+
+  function toggleFullScreen() {
+    setFullScreen(!fullScreen)
+  }
 
   return (
     <Fragment>
-      <MyModal open={modalOpen} title={modalTitle} content={modalContent} setModalOpen={setModalOpen}/>
+      <MyModal
+        open={modalOpen}
+        title={modalTitle}
+        content={modalContent}
+        setModalOpen={setModalOpen}
+      />
       <Box
         className='header'
         display='flex'
@@ -111,15 +128,27 @@ export default function PostDetail({ data }: { data: SiteData }) {
             borderRadius: '0 0 5px 5px',
           }}
         >
-          <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
+          <Typography
+            className='fontJosefin'
+            textColor={colors.white}
+            fontSize='14px'
+          >
             {day}
           </Typography>
 
-          <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
+          <Typography
+            className='fontJosefin'
+            textColor={colors.white}
+            fontSize='14px'
+          >
             {month}
           </Typography>
 
-          <Typography className='fontJosefin' textColor={colors.white} fontSize='14px'>
+          <Typography
+            className='fontJosefin'
+            textColor={colors.white}
+            fontSize='14px'
+          >
             {year}
           </Typography>
         </Box>
@@ -129,14 +158,14 @@ export default function PostDetail({ data }: { data: SiteData }) {
       <Box className='body' display='flex'>
         <Box
           className='bodyLateralBar'
-          display='flex'
+          display={fullScreen ? 'none' : 'flex'}
           flexDirection='column'
           justifyContent='space-around'
           alignItems='center'
           width='100px'
           sx={{
             backgroundColor: colors.blue,
-            height: fixMobileViewPortHeight
+            height: fixMobileViewPortHeight,
             // height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
             // height: `calc(${window.innerHeight - 60}px)`,
           }}
@@ -175,7 +204,10 @@ export default function PostDetail({ data }: { data: SiteData }) {
               justifyContent='space-around'
               alignItems='center'
               width='240px'
-              sx={{ backgroundColor: colors.darkBlue, borderRadius: '0 5px 0 0' }}
+              sx={{
+                backgroundColor: colors.darkBlue,
+                borderRadius: '0 5px 0 0',
+              }}
             >
               <Box
                 display='flex'
@@ -217,9 +249,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
                   </Button>
                 )}
               </Box>
-              <Box
-                width='100px' height='100px'
-                >
+              <Box width='100px' height='100px'>
                 <Img
                   fluid={
                     data.markdownRemark.frontmatter.image.childImageSharp.fluid
@@ -255,7 +285,10 @@ export default function PostDetail({ data }: { data: SiteData }) {
                 alignItems='center'
                 width='125px'
                 height='55px'
-                sx={{ backgroundColor: colors.black, borderRadius: '5px 0 0 5px' }}
+                sx={{
+                  backgroundColor: colors.black,
+                  borderRadius: '5px 0 0 5px',
+                }}
               >
                 <Typography
                   maxWidth='85px'
@@ -283,15 +316,15 @@ export default function PostDetail({ data }: { data: SiteData }) {
             backgroundColor: colors.darkGrey,
             width: '100%',
             height: fixMobileViewPortHeight,
-            // height: typeof window !== undefined ? `calc(${window.innerHeight - 60}px)` : `calc(100vh - 60px)`
-            // height: `calc(${window.innerHeight - 60}px)`,
           }}
         >
+          
           <Box
             width='90%'
             height='auto'
             marginTop='30px'
             padding='10px'
+            onClick={toggleFullScreen}
             sx={{
               backgroundColor: colors.black,
               borderRadius: '10px',
@@ -300,6 +333,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
             }}
           >
             {/* CONTEUDO DO POST */}
+
             <div
               className='postContent'
               dangerouslySetInnerHTML={{ __html: html }}
@@ -309,7 +343,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
           {/* FOOTER */}
           <Box
             minHeight='190px'
-            width='100%'
+            width='90%'
             // sx={{ backgroundColor: '#D9D9D9' }}
           >
             <Box
@@ -318,6 +352,15 @@ export default function PostDetail({ data }: { data: SiteData }) {
               padding='0 10px'
               flexDirection='column'
             >
+              {fullScreen && (
+                <Typography
+                  className='fontJosefin'
+                  fontSize='9px'
+                  textColor={colors.yellow}
+                >
+                  Toque uma vez no texto para mais detalhes.
+                </Typography>
+              )}
               <Typography
                 className='fontJosefin'
                 fontSize='9px'
@@ -333,6 +376,7 @@ export default function PostDetail({ data }: { data: SiteData }) {
               >
                 Esse texto é uma interpretação livre à pregação original.
               </Typography>
+
               <Typography
                 className='fontJosefin'
                 fontSize='9px'
