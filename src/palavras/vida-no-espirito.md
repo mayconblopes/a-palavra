@@ -12,7 +12,7 @@ originalPreaching: 'https://www.youtube.com/live/RDuvfSp0LKs?feature=share'
 originalPreacher: 'Luciano Subirá'
 ---
 
-Em Marcos 16:15-18 vemos Jesus dando a grande comissão aos discípulos, ordenando-os a irem anunciar o evangelho a todos; e o Mestre ainda alertou sobre os sinais que seriam manifestados pelos crentes, dentre eles está o falar em novas línguas. E vemos isso acontecendo no dia de pentecostes, em Atos 2:4, e novamente em Atos 19:5, quando Paulo batiza alguns em nome do Senhor Jesus.
+Em Marcos 16:15-18 vemos Jesus dando a grande comissão aos discípulos, ordenando-os a irem anunciar o evangelho a todos; o Mestre ainda alertou sobre os sinais que seriam manifestados pelos crentes, dentre eles está o falar em novas línguas. Vemos isso acontecendo no dia de pentecostes, em Atos 2:4, e novamente em Atos 19:5, quando Paulo batiza alguns em nome do Senhor Jesus.
 
 É importante dizer que existe uma diferença entre <span>falar em línguas para edificação própria</span>, ou oração em línguas, em comparação a <span>falar em línguas para edificação coletiva</span>, ou variedade de línguas, quando está presente a interpretação do que está sendo dito ou quando o ouvinte entende em sua própria língua o que fora dito. Paulo deixa isso muito claro ao afirmar que o dom da profecia é maior que o de falar em línguas, <span>salvo</span> quando esta estiver acompanhada de interpretação e seja para fortalecimento da igreja (1 Coríntios 14:5-6). Em outras palavras, existe um tipo de falar em línguas que é menor do que a profecia (oração em línguas para edificação própria) e um outro tipo que não é menor do que a profecia (variedade de línguas para edificação coletiva).
 
