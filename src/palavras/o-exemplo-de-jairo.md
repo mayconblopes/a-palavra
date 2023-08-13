@@ -7,7 +7,7 @@ keyConcept1: 'Pai, leve Jesus para casa.'
 keyConcept2: 'Não fique ofuscado pelas coisas do mundo.'
 keyConcept3: 'Leve vida para sua casa, não veneno.'
 bibleQuote1: 'Lucas 8:40-56'
-bibleQuote2: '2Reis 4:39'
+bibleQuote2: '2 Reis 4:39'
 originalPreaching: 'https://www.youtube.com/live/HR5ZAVzpXtM?feature=share'
 originalPreacher: 'Fábio S. dos Santos'
 ---
