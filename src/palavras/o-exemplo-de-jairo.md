@@ -4,7 +4,7 @@ slug: "o-exemplo-de-jairo"
 createdAt: '2023-08-13'
 image: '../images/o-exemplo-de-jairo.png'
 keyConcept1: 'Pai, leve Jesus para casa.'
-keyConcept2: 'O Espí   asasrito    dd reve la coisas ocultas.'
+keyConcept2: 'Não fique ofuscado pelas coisas do mundo.'
 keyConcept3: 'Não sabemos orar como convém.'
 bibleQuote1: 'Lucas 8:40-56'
 bibleQuote2: '2Reis 4:39'
@@ -26,5 +26,5 @@ Levar Jesus para casa requer vencer desafios: Jairo precisou despir-se de seu or
 
 Leve Jesus para sua casa, pai; creia e veja a glória de Deus se manifestar na sua família.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2ODk5NTA5Ml19
+eyJoaXN0b3J5IjpbMzQ5MTAyODU1XX0=
 -->
