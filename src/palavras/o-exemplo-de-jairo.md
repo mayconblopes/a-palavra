@@ -1,7 +1,7 @@
 ---
 title: "O EXEMPLO DE JAIRO"
-slug: ''
-createdAt: '2023-07-30'
+slug: "o-exemplo-de-jairo"
+createdAt: '2023-08-3'
 image: '../images/vida-no-espirito.png'
 keyConcept1: 'Orar em Espírito é orar na vontade de Deus.'
 keyConcept2: 'O Espírito revela coisas ocultas.'
@@ -27,5 +27,5 @@ Como se depreende de 1 João 5:14-15, orar na vontade de Deus é uma forma infal
 Mas como identificar a voz do Espírito em nós? Como saber que não é um simples pensamento? De fato, é muito difícil esse discernimento, pois na maioria de nós <span>a alma e o espírito estão tão próximos um do outro que se confundem</span>, de forma que não conseguimos separar facilmente o que vem do espírito daquilo que vem de nosso próprio conhecimento, pensamentos, sentimentos e emoções. Mas o primeiro passo é sem dúvidas aprofundar na palavra de Deus, que é mais cortante do que qualquer espada, e é capaz de separar alma e espírito (Hebreus 4:12), facilitando assim o discernimento. Além disso, é preciso desenvolver sensibilidade ao direcionamento de Deus, praticando a oração em línguas, pois como vimos, quem ora em línguas, em Espírito ora, conforme ensinou Paulo.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2MzcxOTgwXX0=
+eyJoaXN0b3J5IjpbLTk1NTI5OTUxOV19
 -->
