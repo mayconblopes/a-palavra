@@ -5,10 +5,10 @@ createdAt: '2023-08-13'
 image: '../images/o-exemplo-de-jairo.png'
 keyConcept1: 'Pai, leve Jesus para casa.'
 keyConcept2: 'Não fique ofuscado pelas coisas do mundo.'
-keyConcept3: 'Não sabemos orar como convém.'
+keyConcept3: 'Leve vida para sua casa, não veneno.'
 bibleQuote1: 'Lucas 8:40-56'
 bibleQuote2: '2Reis 4:39'
-originalPreaching: 'https://www.youtube.com/live/RDuvfSp0LKs?feature=share'
+originalPreaching: 'https://www.youtube.com/live/HR5ZAVzpXtM?feature=share'
 originalPreacher: 'Luciano Subirá'
 ---
 
@@ -26,5 +26,5 @@ Levar Jesus para casa requer vencer desafios: Jairo precisou despir-se de seu or
 
 Leve Jesus para sua casa, pai; creia e veja a glória de Deus se manifestar na sua família.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ5MTAyODU1XX0=
+eyJoaXN0b3J5IjpbLTEzOTM3MjE2MTZdfQ==
 -->
