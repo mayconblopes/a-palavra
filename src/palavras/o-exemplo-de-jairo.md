@@ -1,7 +1,7 @@
 ---
 title: "O EXEMPLO DE JAIRO"
 slug: "o-exemplo-de-jairo"
-createdAt: '2023-08-13'
+createdAt: "2023-08-13"
 image: '../images/o-exemplo-de-jairo.png'
 keyConcept1: 'Pai, leve Jesus para casa.'
 keyConcept2: 'Não fique ofuscado pelas coisas do mundo.'
@@ -26,5 +26,5 @@ Levar Jesus para casa requer vencer desafios: Jairo precisou despir-se de seu or
 
 Leve Jesus para sua casa, pai; creia e veja a glória de Deus se manifestar na sua família.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTM3MjE2MTZdfQ==
+eyJoaXN0b3J5IjpbLTg3NDEwNTEwNl19
 -->
